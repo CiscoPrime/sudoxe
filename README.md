@@ -23,9 +23,6 @@
 
 ---
 
-### 🏁 What’s Next
-* Work down the list — tick ⬜ → ✅ as you finish each step.  
-* Progress auto-updates: total ✅ / 16 gives the % at the top.  
-* Keep numbers in DataTables; no blueprint recompiles while balancing.
+![Screenshot 2025-07-06 234853](https://github.com/user-attachments/assets/0187b84a-c3c8-4a29-8e65-c6fa3a29d791)
 
 Happy building! 🙌
