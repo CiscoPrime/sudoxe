@@ -24,5 +24,4 @@
 ---
 
 ![Screenshot 2025-07-06 234853](https://github.com/user-attachments/assets/0187b84a-c3c8-4a29-8e65-c6fa3a29d791)
-
-Happy building! 🙌
+![image](https://github.com/user-attachments/assets/9e81efd9-8433-449a-ab9e-f1cfb0e37641)
