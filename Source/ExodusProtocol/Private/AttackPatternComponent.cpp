@@ -1,5 +1,6 @@
 #include "AttackPatternComponent.h"
 #include "Engine/DataTable.h"
+#include "EventRouter.h"
 
 UAttackPatternComponent::UAttackPatternComponent()
 {
@@ -56,6 +57,10 @@ FName UAttackPatternComponent::PickNextCard()
             {
                 LastCard = Row->CardID;
                 RepeatCount = 1;
+            }
+            if (UEventRouter* Router = UEventRouter::Get(this))
+            {
+                Router->OnIntentSelected.Broadcast(Row->CardID, Row->PatternTag);
             }
             return Row->CardID;
         }
