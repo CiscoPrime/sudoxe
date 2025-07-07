@@ -1,13 +1,12 @@
 # 🃏 Unreal Engine 5.6 Card-Battler – Blueprint Framework
 
-### 📈 Progress  **2 / 16 steps complete (≈ 12 %)**
+### 📈 Progress  **3 / 16 steps complete (≈ 19 %)**
 
 | ✔ | # | 🎯 Goal | 🔑 Blueprint / Asset Types | 🧩 What You Build |
 |:-:|---|---------|---------------------------|------------------|
 | ✅ | 0 | **Clean project** | Blank **C++** template, single **BP_/** folder | Turn on *Enhanced Input*, *Data Assets*, *Gameplay Tags*, *SaveGame* in **Plugins**. <br/>*Docs → Project Setup, Plugins* |
 | ✅ | 1 | **Pure data first** | `UStruct`, `DataTable`, `PrimaryDataAsset` | `FCardData`, `FStatusEffectData`, `FArtifactData`, `FEncounterNodeData` – fields only, no logic. Easy tuning & CSV import. <br/>*Docs → UStructs & Data Tables* |
-| ⬜ | 2 | **Component actors** | `UCardComponent`, `UStatusEffectComponent`, `UAttackPatternComponent`, `UCombatStatsComponent` | Build pawns/enemies/cards by stacking components → reusable & testable. <br/>*Docs → Actor Components* |
-
+| ✅ | 2 | **Component actors** | `UCardComponent`, `UStatusEffectComponent`, `UAttackPatternComponent`, `UCombatStatsComponent` | Build pawns/enemies/cards by stacking components → reusable & testable. <br/>*Docs → Actor Components* |
 | ⬜ | 3 | **Card lifecycle** | `BP_CardActor` (world) + `BP_CardWidget` (UI) | States: *DrawPile → Hand → Queue → Grave*. Fire events: `OnDraw`, `OnPlay`, `OnResolve`, `OnDiscard`. <br/>*Docs → Gameplay Framework* |
 | ⬜ | 4 | **Turn manager** | `BP_CombatManager` | Controls loop: *StartTurn → Player → Enemy → EndTurn*. Tracks rounds, energy, win/loss. <br/>*Docs → Timers & Tick* |
 | ⬜ | 5 | **Event bus** | `BP_EventRouter` (on GameInstance) **or** Blueprint Interface | Publish/Subscribe: e.g. `"CardPlayed"`, `"DamageTaken"`; loose coupling. <br/>*Docs → Blueprint Dispatchers* |
