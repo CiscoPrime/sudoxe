@@ -1,0 +1,1 @@
+#include "CardPatternTypes.h"
