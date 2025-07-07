@@ -1,6 +1,6 @@
 # 🃏 Unreal Engine 5.6 Card-Battler – Blueprint Framework
 
-### 📈 Progress  **6 / 16 steps complete (≈ 38 %)**
+### 📈 Progress  **7 / 16 steps complete (≈ 44 %)**
 
 | ✔ | # | 🎯 Goal | 🔑 Blueprint / Asset Types | 🧩 What You Build |
 |:-:|---|---------|---------------------------|------------------|
@@ -10,7 +10,7 @@
 | ✅ | 3 | **Card lifecycle** | `BP_CardActor` (world) + `BP_CardWidget` (UI) | States: *DrawPile → Hand → Queue → Grave*. Fire events: `OnDraw`, `OnPlay`, `OnResolve`, `OnDiscard`. <br/>*Docs → Gameplay Framework* |
 | ✅ | 4 | **Turn manager** | `BP_CombatManager` | Controls loop: *StartTurn → Player → Enemy → EndTurn*. Tracks rounds, energy, win/loss. <br/>*Docs → Timers & Tick* |
 | ✅ | 5 | **Event bus** | `UEventRouter` (GameMode subobject) | Publish/Subscribe: e.g. `"CardPlayed"`, `"DamageTaken"`; loose coupling. <br/>*Docs → Blueprint Dispatchers* |
-| ⬜ | 6 | **Rich UI** | `BP_HUD_Widget` root + Hand, DrawPile, Discard, Tooltip, EnemyIntent, StatusBars | Widgets listen to the event bus; use Widget Animations for flashes. <br/>*Docs → UMG Basics, Binding* |
+| ✅ | 6 | **Rich UI** | `BP_HUD_Widget` root + Hand, DrawPile, Discard, Tooltip, EnemyIntent, StatusBars | Widgets listen to the event bus; use Widget Animations for flashes. <br/>*Docs → UMG Basics, Binding* |
 | ⬜ | 7 | **Enemy AI** | `UAttackPatternComponent` + DataTable | Rows: Ability, Weight, RepeatLimit, Tag. Chooses next ability each Enemy phase; broadcasts `"SelectedIntent"`. <br/>*Docs → Data-Driven AI* |
 | ⬜ | 8 | **Rewards** | `BP_RewardManager` (GameMode sub-object) | Pools cards/artifacts by rarity; `GiveRewards()` spawns pick screen. <br/>*Docs → Random Streams, Gameplay Tags* |
 | ⬜ | 9 | **World map** | `BP_Node` actor + `BP_NodeMapWidget` | Place nodes in an Overview level. Click → travel, save run state, load combat level. <br/>*Docs → Level Streaming* |
