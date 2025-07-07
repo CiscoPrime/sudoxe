@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 //=== StatusTypes.h ========================================================
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
