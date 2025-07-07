@@ -1,6 +1,6 @@
 # 🃏 Unreal Engine 5.6 Card-Battler – Blueprint Framework
 
-### 📈 Progress  **7 / 16 steps complete (≈ 44 %)**
+### 📈 Progress  **8 / 16 steps complete (≈ 50 %)**
 
 | ✔ | # | 🎯 Goal | 🔑 Blueprint / Asset Types | 🧩 What You Build |
 |:-:|---|---------|---------------------------|------------------|
@@ -11,7 +11,7 @@
 | ✅ | 4 | **Turn manager** | `BP_CombatManager` | Controls loop: *StartTurn → Player → Enemy → EndTurn*. Tracks rounds, energy, win/loss. <br/>*Docs → Timers & Tick* |
 | ✅ | 5 | **Event bus** | `UEventRouter` (GameMode subobject) | Publish/Subscribe: e.g. `"CardPlayed"`, `"DamageTaken"`; loose coupling. <br/>*Docs → Blueprint Dispatchers* |
 | ✅ | 6 | **Rich UI** | `BP_HUD_Widget` root + Hand, DrawPile, Discard, Tooltip, EnemyIntent, StatusBars | Widgets listen to the event bus; use Widget Animations for flashes. <br/>*Docs → UMG Basics, Binding* |
-| ⬜ | 7 | **Enemy AI** | `UAttackPatternComponent` + DataTable | Rows: Ability, Weight, RepeatLimit, Tag. Chooses next ability each Enemy phase; broadcasts `"SelectedIntent"`. <br/>*Docs → Data-Driven AI* |
+| ✅ | 7 | **Enemy AI** | `UAttackPatternComponent` + DataTable | Rows: Ability, Weight, RepeatLimit, Tag. Chooses next ability each Enemy phase; broadcasts `"SelectedIntent"`. <br/>*Docs → Data-Driven AI* |
 | ⬜ | 8 | **Rewards** | `BP_RewardManager` (GameMode sub-object) | Pools cards/artifacts by rarity; `GiveRewards()` spawns pick screen. <br/>*Docs → Random Streams, Gameplay Tags* |
 | ⬜ | 9 | **World map** | `BP_Node` actor + `BP_NodeMapWidget` | Place nodes in an Overview level. Click → travel, save run state, load combat level. <br/>*Docs → Level Streaming* |
 | ⬜ | 10 | **Shop & story** | `BP_ShopWidget`, `BP_StoryEventWidget` | Driven from `NodeData` type. Story rows hold snippet + choices in DataTable. <br/>*Docs → UMG Dynamic UI* |
@@ -25,7 +25,7 @@
 
 * **UCardComponent** – attach to card actors and trigger the dispatcher events when the card is drawn or played.
 * **UStatusEffectComponent** – keeps active effects; call `ApplyStatus` or `ApplyStatusByTag` to add stacks.
-* **UAttackPatternComponent** – link a DataTable of `FCardPatternData` and call `PickNextCard()` for weighted AI.
+* **UAttackPatternComponent** – link a DataTable of `FCardPatternData` and call `PickNextCard()` for weighted AI. The component broadcasts `OnIntentSelected` with the chosen card.
 * **UCombatStatsComponent** – stores health, block and energy. `ApplyDamage()` notifies the global `UEventRouter`.
 
 ---
