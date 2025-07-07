@@ -3,6 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
+#include "Blueprint/UserWidget.h" // for CardVisualWidget
 
 #include "CardTypes.generated.h" // ← Must be the LAST include in this header
 
@@ -50,6 +51,18 @@ struct FCardData
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     TObjectPtr<UTexture2D> Portrait = nullptr;
 
+    /** Card frame backing image. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card|Visual")
+    TObjectPtr<UTexture2D> Frame = nullptr;
+
+    /** Tint applied to the frame texture. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card|Visual")
+    FLinearColor FrameTint = FLinearColor::White;
+
+    /** Optional widget class used for the in-hand visual. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card|Visual")
+    TSubclassOf<UUserWidget> CardVisualWidget;
+
     /** Broad gameplay bucket (Attack, Skill, etc.). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     ECardType CardType = ECardType::Attack;
@@ -73,4 +86,12 @@ struct FCardData
     /** Tags of status effects this card applies when it resolves. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     TArray<FGameplayTag> GrantedStatusEffects;
+
+    /** Status effects automatically present when the card is drawn. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
+    TArray<FGameplayTag> StartingStatuses;
+
+    /** How many times the card's effect repeats. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
+    int32 Repetitions = 1;
 };
