@@ -17,13 +17,13 @@ enum class ENodeType : uint8
     Rest       UMETA(DisplayName = "Rest Site")
 };
 
-/** Pure‑data row for the world‑map nodes. */
+/** Pure-data row for the world-map nodes. */
 USTRUCT(BlueprintType)
 struct FEncounterNodeData : public FTableRowBase
 {
     GENERATED_BODY()
 
-    /** Internal key (e.g. “Act1_Grunt”). */
+    /** Internal key (e.g. "Act1_Grunt"). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Node")
     FName NodeID = NAME_None;
 
@@ -35,11 +35,11 @@ struct FEncounterNodeData : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Node")
     ENodeType NodeType = ENodeType::Combat;
 
-    /** Points to another DataTable row (enemy group, shop list, story entry…). */
+    /** Points to another DataTable row (enemy group, shop list, story entry...). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Node")
     FName PayloadID = NAME_None;
 
-    /** Extra flag for map‑generation (“Early”, “Late”, etc.). */
+    /** Extra flag for map-generation ("Early", "Late", etc.). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Node")
     FGameplayTag NodeTag;
 };

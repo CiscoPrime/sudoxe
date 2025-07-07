@@ -7,7 +7,7 @@
 #include "CardTypes.h"      // access to FCardData
 #include "StatusTypes.h"    // access to FStatusEffectData
 
-#include "BPHelpers.generated.h" // ← MUST be LAST include
+#include "BPHelpers.generated.h" // <- MUST be LAST include
 
 /**
  * Static helper functions callable from any Blueprint.
@@ -26,8 +26,8 @@ public:
     static FCardData FindCardData(const UDataTable* Table, FName RowName);
 
     /**
-     * Simple utility that adds stacks & duration to a status‑effect component on Target.
-     * (Assumes you have a UStatusEffectComponent you’ll write later.)
+     * Simple utility that adds stacks & duration to a status-effect component on Target.
+     * (Assumes you have a UStatusEffectComponent you'll write later.)
      */
     UFUNCTION(BlueprintCallable, Category = "Status")
     static void ApplyStatusEffect(AActor* Target, const FStatusEffectData& StatusData, int32 Stacks, int32 Duration);

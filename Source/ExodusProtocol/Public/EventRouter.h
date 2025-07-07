@@ -6,7 +6,7 @@
     the delegate macros can see FCardData           */
 #include "CardTypes.h"         
 
-#include "EventRouter.generated.h"   // ← absolutely last include
+#include "EventRouter.generated.h"   // <- absolutely last include
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCardPlayedEvent,
     const FCardData&, CardData);

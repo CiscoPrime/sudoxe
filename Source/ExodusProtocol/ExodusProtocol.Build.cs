@@ -19,7 +19,7 @@ public class ExodusProtocol : ModuleRules
             "GameplayTags"
         });
 
-        // Add any private‑only dependencies here later
+        // Add any private-only dependencies here later
         PrivateDependencyModuleNames.AddRange(new string[] { });
 
         // Uncomment if you are using Slate UI

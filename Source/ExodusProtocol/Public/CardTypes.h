@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
 
-#include "CardTypes.generated.h" // ← Must be the LAST include in this header
+#include "CardTypes.generated.h" // <- Must be the LAST include in this header
 
 /**
  * Classification for rules & UI.
@@ -30,7 +30,7 @@ enum class ECardRarity : uint8
 };
 
 /**
- * Pure‑data definition of a card.  No behaviour here—only the numbers and identifiers that
+ * Pure-data definition of a card.  No behaviour here - only the numbers and identifiers that
  * designers tune in the editor.
  */
 USTRUCT(BlueprintType)
@@ -38,7 +38,7 @@ struct FCardData
 {
     GENERATED_BODY()
 
-    /** Internal name for look‑ups (e.g. "Strike_Red"). */
+    /** Internal name for look-ups (e.g. "Strike_Red"). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     FName CardID = NAME_None;
 
@@ -54,19 +54,19 @@ struct FCardData
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     ECardType CardType = ECardType::Attack;
 
-    /** Drop‑rate bucket for rewards. */
+    /** Drop-rate bucket for rewards. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     ECardRarity Rarity = ECardRarity::Common;
 
-    /** Energy cost shown in the top‑left pip. */
+    /** Energy cost shown in the top-left pip. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     int32 EnergyCost = 1;
 
-    /** Number fed into damage formulas; 0 for non‑damage cards. */
+    /** Number fed into damage formulas; 0 for non-damage cards. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     int32 BaseDamage = 0;
 
-    /** Number fed into block formulas; 0 for non‑block cards. */
+    /** Number fed into block formulas; 0 for non-block cards. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     int32 BaseBlock = 0;
 

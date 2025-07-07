@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
 
-#include "StatusTypes.generated.h" // ← Must be the LAST include in this header
+#include "StatusTypes.generated.h" // <- Must be the LAST include in this header
 
 /**
  * Broad grouping used by UI (green vs. red) and balance logic.
@@ -21,7 +21,7 @@ enum class EStatusCategory : uint8
 UENUM(BlueprintType)
 enum class EStatusStacking : uint8
 {
-    /** Adds its stacks on top of what’s already there. */
+    /** Adds its stacks on top of what's already there. */
     Stack       UMETA(DisplayName = "Stack"),
 
     /** Resets the remaining duration but keeps current stacks. */
@@ -32,7 +32,7 @@ enum class EStatusStacking : uint8
 };
 
 /**
- * Pure‑data description of a status effect (Bleed, Strength, Vulnerable…).
+ * Pure-data description of a status effect (Bleed, Strength, Vulnerable...).
  * Designers tweak these in DataTables / PrimaryDataAssets.
  */
 USTRUCT(BlueprintType)
@@ -40,7 +40,7 @@ struct FStatusEffectData
 {
     GENERATED_BODY()
 
-    /** Internal ID for look‑ups (e.g. "Bleed"). */
+    /** Internal ID for look-ups (e.g. "Bleed"). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Status")
     FName StatusID = NAME_None;
 
@@ -48,11 +48,11 @@ struct FStatusEffectData
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Status")
     FText DisplayName;
 
-    /** 32×32 or 64×64 icon used in the HUD. */
+    /** 32x32 or 64x64 icon used in the HUD. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Status")
     TObjectPtr<UTexture2D> Icon = nullptr;
 
-    /** Buff vs. Debuff for colour‑coding and certain rules. */
+    /** Buff vs. Debuff for colour-coding and certain rules. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Status")
     EStatusCategory Category = EStatusCategory::Debuff;
 

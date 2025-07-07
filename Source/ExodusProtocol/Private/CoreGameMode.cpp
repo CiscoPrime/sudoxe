@@ -18,7 +18,7 @@ void ACoreGameMode::BeginPlay()
         EventRouter = NewObject<UEventRouter>(this, EventRouterClass);
         if (EventRouter)
         {
-            EventRouter->AddToRoot(); // ensure it isn’t garbage-collected
+            EventRouter->AddToRoot(); // ensure it isn't garbage-collected
         }
     }
 }

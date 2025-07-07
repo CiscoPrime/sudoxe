@@ -2,9 +2,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"        // Remove if you don’t plan to tag artifacts
+#include "GameplayTagContainer.h"        // Remove if you don't plan to tag artifacts
 
-#include "ArtifactTypes.generated.h"     // ← must be the last include
+#include "ArtifactTypes.generated.h"     // <- must be the last include
 
 /** How rare an artifact is when rewards are rolled. */
 UENUM(BlueprintType)
@@ -17,7 +17,7 @@ enum class EArtifactRarity : uint8
     Legendary   UMETA(DisplayName = "Legendary")
 };
 
-/** Pure‑data row for a DataTable of artifacts. No behaviour—just numbers and text. */
+/** Pure-data row for a DataTable of artifacts. No behaviour - just numbers and text. */
 USTRUCT(BlueprintType)
 struct FArtifactData : public FTableRowBase
 {
@@ -35,7 +35,7 @@ struct FArtifactData : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Artifact")
     FText Description;
 
-    /** 64×64 icon used in reward and inventory screens. */
+    /** 64x64 icon used in reward and inventory screens. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Artifact")
     TObjectPtr<UTexture2D> Icon = nullptr;
 
@@ -47,7 +47,7 @@ struct FArtifactData : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Artifact")
     int32 GoldValue = 50;
 
-    /** Optional gameplay tags (e.g. “Artifact.Passive.BlockBoost”). */
+    /** Optional gameplay tags (e.g. "Artifact.Passive.BlockBoost"). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Artifact")
     FGameplayTag GameplayTag;
 };

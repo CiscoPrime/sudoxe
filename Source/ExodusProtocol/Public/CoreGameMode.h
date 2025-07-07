@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 
-#include "CoreGameMode.generated.h" // ← Must be the LAST include
+#include "CoreGameMode.generated.h" // <- Must be the LAST include
 
 class UEventRouter;
 
@@ -21,7 +21,7 @@ class ACoreGameMode : public AGameModeBase
 public:
     ACoreGameMode();
 
-    /** Blueprint‑exposed getter */
+    /** Blueprint-exposed getter */
     UFUNCTION(BlueprintPure, Category = "Managers")
     FORCEINLINE UEventRouter* GetEventRouter() const { return EventRouter; }
 
