@@ -4,6 +4,7 @@
 #include "Engine/World.h"
 #include "EventRouter.h"
 #include "CombatManager.h"
+#include "RewardManager.h"
 
 ACoreGameMode::ACoreGameMode()
 {
@@ -28,6 +29,15 @@ void ACoreGameMode::BeginPlay()
         FActorSpawnParameters Params;
         Params.Owner = this;
         CombatManager = GetWorld()->SpawnActor<ACombatManager>(CombatManagerClass, FVector::ZeroVector, FRotator::ZeroRotator, Params);
+    }
+
+    if (RewardManagerClass)
+    {
+        RewardManager = NewObject<URewardManager>(this, RewardManagerClass);
+        if (RewardManager)
+        {
+            RewardManager->AddToRoot();
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 class UEventRouter;
 class ACombatManager;
+class URewardManager;
 
 /**
  * Thin native GameMode that spawns and keeps a reference to the global EventRouter.
@@ -30,6 +31,10 @@ public:
     UFUNCTION(BlueprintPure, Category = "Managers")
     FORCEINLINE ACombatManager* GetCombatManager() const { return CombatManager; }
 
+    /** Blueprint‑exposed getter */
+    UFUNCTION(BlueprintPure, Category = "Managers")
+    FORCEINLINE URewardManager* GetRewardManager() const { return RewardManager; }
+
 protected:
     virtual void BeginPlay() override;
 
@@ -41,6 +46,10 @@ protected:
     UPROPERTY(EditDefaultsOnly, Category = "Managers")
     TSubclassOf<ACombatManager> CombatManagerClass;
 
+    /** Reward manager object to instantiate */
+    UPROPERTY(EditDefaultsOnly, Category = "Managers")
+    TSubclassOf<URewardManager> RewardManagerClass;
+
 private:
     /** Live instance kept alive for the whole match. */
     UPROPERTY()
@@ -49,4 +58,8 @@ private:
     /** Spawned combat manager instance */
     UPROPERTY()
     TObjectPtr<ACombatManager> CombatManager = nullptr;
+
+    /** Live reward manager instance */
+    UPROPERTY()
+    TObjectPtr<URewardManager> RewardManager = nullptr;
 };
