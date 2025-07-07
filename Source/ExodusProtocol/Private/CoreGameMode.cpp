@@ -3,6 +3,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Engine/World.h"
 #include "EventRouter.h"
+#include "CombatManager.h"
 
 ACoreGameMode::ACoreGameMode()
 {
@@ -18,7 +19,15 @@ void ACoreGameMode::BeginPlay()
         EventRouter = NewObject<UEventRouter>(this, EventRouterClass);
         if (EventRouter)
         {
-            EventRouter->AddToRoot(); // ensure it isn’t garbage-collected
+            EventRouter->AddToRoot(); // ensure it isnt garbage-collected
         }
     }
+
+    if (CombatManagerClass)
+    {
+        FActorSpawnParameters Params;
+        Params.Owner = this;
+        CombatManager = GetWorld()->SpawnActor<ACombatManager>(CombatManagerClass, FVector::ZeroVector, FRotator::ZeroRotator, Params);
+    }
 }
+
