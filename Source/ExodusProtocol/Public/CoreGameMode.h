@@ -37,4 +37,3 @@ private:
     UPROPERTY()
     TObjectPtr<UEventRouter> EventRouter = nullptr;
 };
-#pragma once

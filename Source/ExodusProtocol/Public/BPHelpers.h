@@ -32,4 +32,3 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Status")
     static void ApplyStatusEffect(AActor* Target, const FStatusEffectData& StatusData, int32 Stacks, int32 Duration);
 };
-#pragma once
