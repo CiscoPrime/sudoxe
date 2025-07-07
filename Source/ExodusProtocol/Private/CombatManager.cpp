@@ -2,6 +2,8 @@
 #include "CombatStatsComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
+#include "AttackPatternComponent.h"
+#include "EventRouter.h"
 
 ACombatManager::ACombatManager()
 {
@@ -41,6 +43,11 @@ void ACombatManager::StartEnemyTurn()
     if (UCombatStatsComponent* Stats = GetStats(EnemyPawn))
     {
         Stats->Energy = 3;
+    }
+    if (UAttackPatternComponent* Pattern =
+            EnemyPawn ? EnemyPawn->FindComponentByClass<UAttackPatternComponent>() : nullptr)
+    {
+        Pattern->PickNextCard();
     }
     OnEnemyTurnStarted.Broadcast();
 }
