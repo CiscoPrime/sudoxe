@@ -1,6 +1,6 @@
 # 🃏 Unreal Engine 5.6 Card-Battler – Blueprint Framework
 
-### 📈 Progress  **10 / 16 steps complete (≈ 62 %)**
+### 📈 Progress  **11 / 16 steps complete (≈ 69 %)**
 
 | ✔ | # | 🎯 Goal | 🔑 Blueprint / Asset Types | 🧩 What You Build |
 |:-:|---|---------|---------------------------|------------------|
@@ -14,7 +14,7 @@
 | ✅ | 7 | **Enemy AI** | `UAttackPatternComponent` + DataTable | Rows: Ability, Weight, RepeatLimit, Tag. Chooses next ability each Enemy phase; broadcasts `"SelectedIntent"`. <br/>*Docs → Data-Driven AI* |
 | ✅ | 8 | **Rewards** | `BP_RewardManager` (GameMode sub-object) | Pools cards/artifacts by rarity; `GiveRewards()` spawns pick screen. <br/>*Docs → Random Streams, Gameplay Tags* |
 | ✅ | 9 | **World map** | `ANodeActor` + `UNodeMapWidget` | Place nodes in an Overview level. Click → travel, save run state, load combat level. <br/>*Docs → Level Streaming* |
-| ⬜ | 10 | **Shop & story** | `BP_ShopWidget`, `BP_StoryEventWidget` | Driven from `NodeData` type. Story rows hold snippet + choices in DataTable. <br/>*Docs → UMG Dynamic UI* |
+| ✅ | 10 | **Shop & story** | `BP_ShopWidget`, `BP_StoryEventWidget` | Driven from `NodeData` type. Story rows hold snippet + choices in DataTable. <br/>*Docs → UMG Dynamic UI* |
 | ⬜ | 11 | **Save / Load** | `USaveGame_RunState` + `BP_SaveSubsystem` | Store deck, artifacts, HP, gold, visited nodes, seed. Autosave after every node. <br/>*Docs → SaveGame Object* |
 | ⬜ | 12 | **Level swap** | Combat Level ↔ Map Level | GameMode handles `OpenLevel()`, clears old UI/event binds. <br/>*Docs → OpenLevel, GameInstance* |
 | ⬜ | 13 | **Example content** | CSV → DataTable import | Add 20 cards, 5 artifacts, 3 status effects per rarity. Use public-domain art. <br/>*Docs → Data Import* |
