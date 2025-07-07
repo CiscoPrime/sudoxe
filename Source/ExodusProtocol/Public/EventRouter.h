@@ -12,6 +12,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCardPlayedEvent,
     const FCardData&, CardData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDamageTakenEvent,
     AActor*, Target, int32, Amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FActorDiedEvent,
+    AActor*, DeadActor);
 
 UCLASS(BlueprintType)
 class EXODUSPROTOCOL_API UEventRouter : public UObject
@@ -23,4 +25,5 @@ public:
 
     UPROPERTY(BlueprintAssignable) FCardPlayedEvent  OnCardPlayed;
     UPROPERTY(BlueprintAssignable) FDamageTakenEvent OnDamageTaken;
+    UPROPERTY(BlueprintAssignable) FActorDiedEvent   OnActorDied;
 };

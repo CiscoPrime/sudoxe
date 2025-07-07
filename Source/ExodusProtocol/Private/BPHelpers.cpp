@@ -2,6 +2,7 @@
 #include "BPHelpers.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
+#include "StatusEffectComponent.h"
 
 FCardData UBPHelpers::FindCardData(const UDataTable* Table, FName RowName)
 {
@@ -14,7 +15,8 @@ void UBPHelpers::ApplyStatusEffect(AActor* Target, const FStatusEffectData& Stat
 {
     if (!Target) { return; }
 
-    // Placeholder: you will replace this with real component logic.
-    UE_LOG(LogTemp, Verbose, TEXT("ApplyStatusEffect %s to %s: %d stacks for %d turns"),
-        *StatusData.StatusID.ToString(), *Target->GetName(), Stacks, Duration);
+    if (UStatusEffectComponent* StatusComp = Target->FindComponentByClass<UStatusEffectComponent>())
+    {
+        StatusComp->ApplyStatus(StatusData, Stacks, Duration);
+    }
 }

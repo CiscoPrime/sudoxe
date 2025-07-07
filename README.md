@@ -7,6 +7,7 @@
 | ✅ | 0 | **Clean project** | Blank **C++** template, single **BP_/** folder | Turn on *Enhanced Input*, *Data Assets*, *Gameplay Tags*, *SaveGame* in **Plugins**. <br/>*Docs → Project Setup, Plugins* |
 | ✅ | 1 | **Pure data first** | `UStruct`, `DataTable`, `PrimaryDataAsset` | `FCardData`, `FStatusEffectData`, `FArtifactData`, `FEncounterNodeData` – fields only, no logic. Easy tuning & CSV import. <br/>*Docs → UStructs & Data Tables* |
 | ⬜ | 2 | **Component actors** | `UCardComponent`, `UStatusEffectComponent`, `UAttackPatternComponent`, `UCombatStatsComponent` | Build pawns/enemies/cards by stacking components → reusable & testable. <br/>*Docs → Actor Components* |
+
 | ⬜ | 3 | **Card lifecycle** | `BP_CardActor` (world) + `BP_CardWidget` (UI) | States: *DrawPile → Hand → Queue → Grave*. Fire events: `OnDraw`, `OnPlay`, `OnResolve`, `OnDiscard`. <br/>*Docs → Gameplay Framework* |
 | ⬜ | 4 | **Turn manager** | `BP_CombatManager` | Controls loop: *StartTurn → Player → Enemy → EndTurn*. Tracks rounds, energy, win/loss. <br/>*Docs → Timers & Tick* |
 | ⬜ | 5 | **Event bus** | `BP_EventRouter` (on GameInstance) **or** Blueprint Interface | Publish/Subscribe: e.g. `"CardPlayed"`, `"DamageTaken"`; loose coupling. <br/>*Docs → Blueprint Dispatchers* |
@@ -20,6 +21,13 @@
 | ⬜ | 13 | **Example content** | CSV → DataTable import | Add 20 cards, 5 artifacts, 3 status effects per rarity. Use public-domain art. <br/>*Docs → Data Import* |
 | ⬜ | 14 | **QA & balance** | Editor Utility Widget “BalanceBoard” | Show live stats: dmg/energy, draw odds. Tweak numbers directly in DataTables. <br/>*Docs → Editor Utility Widgets* |
 | ⬜ | 15 | **Package & hand-off** | Project Settings → Packaging | Check cooked assets, size, redirects. Ship this README so new folks can jump in anywhere. <br/>*Docs → Packaging Projects* |
+
+## Using the New Components
+
+* **UCardComponent** – attach to card actors and trigger the dispatcher events when the card is drawn or played.
+* **UStatusEffectComponent** – keeps active effects; call `ApplyStatus` or `ApplyStatusByTag` to add stacks.
+* **UAttackPatternComponent** – link a DataTable of `FCardPatternData` and call `PickNextCard()` for weighted AI.
+* **UCombatStatsComponent** – stores health, block and energy. `ApplyDamage()` notifies the global `UEventRouter`.
 
 ---
 
