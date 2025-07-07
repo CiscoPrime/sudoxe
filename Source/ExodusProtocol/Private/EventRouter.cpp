@@ -1,6 +1,7 @@
 //=== EventRouter.cpp ======================================================
 #include "EventRouter.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameplayTagContainer.h" // For FGameplayTag in delegates
 #include "CoreGameMode.h"
 
 UEventRouter* UEventRouter::Get(const UObject* WorldContext)
