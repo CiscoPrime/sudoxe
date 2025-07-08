@@ -29,6 +29,7 @@
 * **UCombatStatsComponent** – stores health, block and energy. `ApplyDamage()` notifies the global `UEventRouter`.
 * **ANodeActor** – place nodes in map levels, assign `NodeData` and connect neighbours via the `Neighbours` array. Use `GetNeighbours()` in Blueprints.
 * **UNodeMapWidget** – call `InitWithNodes` with all node actors and handle `OnNodeSelected` when the player picks a destination.
+* **AGameHUD** – custom HUD that creates your `BP_HUD_Widget` at begin play. Set `BP_GameHUD` as the HUD Class in `BP_CoreGameMode`.
 
 ---
 
