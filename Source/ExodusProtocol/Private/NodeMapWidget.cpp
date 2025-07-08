@@ -27,7 +27,11 @@ void UNodeMapWidget::HandleNodeActivated(ANodeActor* Node)
                 const FShopData* Row = ShopDataTable->FindRow<FShopData>(Data.PayloadID, TEXT("HandleNodeActivated"));
                 if (Row)
                 {
-                    TSubclassOf<UShopWidget> WidgetClass = ShopWidgetClass ? ShopWidgetClass : UShopWidget::StaticClass();
+                    TSubclassOf<UShopWidget> WidgetClass = ShopWidgetClass;
+                    if (!WidgetClass)
+                    {
+                        WidgetClass = UShopWidget::StaticClass();
+                    }
                     if (UShopWidget* Widget = CreateWidget<UShopWidget>(GetWorld(), WidgetClass))
                     {
                         Widget->InitWithData(*Row);
@@ -44,7 +48,11 @@ void UNodeMapWidget::HandleNodeActivated(ANodeActor* Node)
                 const FStoryEventData* Row = StoryEventTable->FindRow<FStoryEventData>(Data.PayloadID, TEXT("HandleNodeActivated"));
                 if (Row)
                 {
-                    TSubclassOf<UStoryEventWidget> WidgetClass = StoryEventWidgetClass ? StoryEventWidgetClass : UStoryEventWidget::StaticClass();
+                    TSubclassOf<UStoryEventWidget> WidgetClass = StoryEventWidgetClass;
+                    if (!WidgetClass)
+                    {
+                        WidgetClass = UStoryEventWidget::StaticClass();
+                    }
                     if (UStoryEventWidget* Widget = CreateWidget<UStoryEventWidget>(GetWorld(), WidgetClass))
                     {
                         Widget->InitWithData(*Row);
