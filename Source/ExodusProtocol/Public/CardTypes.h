@@ -5,6 +5,9 @@
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
 #include "Blueprint/UserWidget.h" // for CardVisualWidget
 #include "Engine/DataTable.h"
+#include "PaperSprite.h"              // for UPaperSprite
+#include "PaperFlipbook.h"            // for UPaperFlipbook
+#include "Animation/AnimationAsset.h"
 
 #include "CardTypes.generated.h" // ← Must be the LAST include in this header
 
@@ -95,4 +98,43 @@ struct FCardData : public FTableRowBase
     /** How many times the card's effect repeats. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     int32 Repetitions = 1;
+};
+
+/** Visual assets used when representing a card's effect or spawned actor. */
+USTRUCT(BlueprintType)
+struct FCardVisualData : public FTableRowBase
+{
+    GENERATED_BODY()
+
+    /** Simple 2D sprite for minimal representations. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UPaperSprite> Sprite = nullptr;
+
+    /** Animated flipbook for 2D characters. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UPaperFlipbook> Flipbook = nullptr;
+
+    /** Skeletal mesh used for 3D representation. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<USkeletalMesh> SkeletalMesh = nullptr;
+
+    /** Animation played while idle. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UAnimationAsset> IdleAnimation = nullptr;
+
+    /** Animation played when attacking. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UAnimationAsset> AttackAnimation = nullptr;
+
+    /** Animation played while defending. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UAnimationAsset> DefendAnimation = nullptr;
+
+    /** Animation used for walking or movement. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UAnimationAsset> WalkAnimation = nullptr;
+
+    /** Animation used for retreat or death. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
+    TObjectPtr<UAnimationAsset> RetreatAnimation = nullptr;
 };
