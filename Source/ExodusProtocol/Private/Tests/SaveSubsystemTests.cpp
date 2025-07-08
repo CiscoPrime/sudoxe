@@ -8,8 +8,12 @@ bool FSaveSubsystemRoundTrip::RunTest(const FString& Parameters)
     USaveGame_RunState* Saved = NewObject<USaveGame_RunState>();
     Saved->DeckCardIDs = { FName("C1"), FName("C2") };
     Saved->VisitedNodeIDs = { FName("N1"), FName("N2") };
+    Saved->Gold = 5;
 
     TestTrue(TEXT("Save success"), Subsys->SaveRunState(Saved));
+
+    // Update gold through the subsystem setter
+    Subsys->SetGold(42);
 
     USaveGame_RunState* Loaded = Subsys->LoadRunState();
     TestTrue(TEXT("Loaded not null"), Loaded != nullptr);
@@ -25,6 +29,7 @@ bool FSaveSubsystemRoundTrip::RunTest(const FString& Parameters)
         {
             TestEqual(FString::Printf(TEXT("NodeID %d"), i), Loaded->VisitedNodeIDs[i], Saved->VisitedNodeIDs[i]);
         }
+        TestEqual(TEXT("Gold updated"), Loaded->Gold, 42);
     }
 
     Subsys->DeleteSave();
