@@ -66,5 +66,7 @@ public:
 
 private:
     static const FString SlotName;
+    /** Load the save slot or create a new state if none exists. */
+    USaveGame_RunState* GetOrCreateState();
 };
 
