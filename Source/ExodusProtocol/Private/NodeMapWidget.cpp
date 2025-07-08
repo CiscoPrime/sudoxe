@@ -67,6 +67,7 @@ void UNodeMapWidget::HandleNodeActivated(ANodeActor* Node)
             {
                 State = NewObject<USaveGame_RunState>();
             }
+            State->VisitedNodeIDs.AddUnique(Node->NodeData.NodeID);
             Subsystem->SaveRunState(State);
         }
     }
