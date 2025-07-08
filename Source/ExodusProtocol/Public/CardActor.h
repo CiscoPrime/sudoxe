@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CardComponent.h"
+#include "CardVisualComponent.h"
 #include "EventRouter.h"
 #include "CardActor.generated.h"
 
@@ -31,6 +32,10 @@ public:
     /** Component holding card data and events. */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Card")
     TObjectPtr<UCardComponent> CardComponent;
+
+    /** Handles visual asset and animations for this card. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Card")
+    TObjectPtr<UCardVisualComponent> CardVisual;
 
     /** Move to a new zone and fire the relevant lifecycle events. */
     UFUNCTION(BlueprintCallable, Category="Card")
