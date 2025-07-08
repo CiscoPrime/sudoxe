@@ -62,7 +62,7 @@ public:
 
     /** Replace all saved minion statuses on disk. */
     UFUNCTION(BlueprintCallable, Category="Save")
-    void SetMinionStatuses(const TMap<FName, TArray<FActiveStatusEffect>>& Statuses);
+    void SetMinionStatuses(const TMap<FName, FMinionStatusArray>& Statuses);
 
 private:
     static const FString SlotName;
