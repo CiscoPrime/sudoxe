@@ -1,11 +1,12 @@
 #include "CardActor.h"
+#include "Components/SceneComponent.h"
 
 ACardActor::ACardActor()
 {
     PrimaryActorTick.bCanEverTick = false;
 
+    RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
     CardComponent = CreateDefaultSubobject<UCardComponent>(TEXT("CardComponent"));
-    RootComponent = CardComponent;
 }
 
 void ACardActor::MoveToZone(ECardZone NewZone)
