@@ -5,6 +5,7 @@
 #include "ShopTypes.h"
 #include "StoryEventTypes.h"
 #include "Engine/DataTable.h"
+#include "SaveSubsystem.h"
 
 void UNodeMapWidget::InitWithNodes(const TArray<ANodeActor*>& Nodes)
 {
@@ -55,5 +56,18 @@ void UNodeMapWidget::HandleNodeActivated(ANodeActor* Node)
         }
         default:
             break;
+    }
+
+    if (UGameInstance* GI = GetGameInstance())
+    {
+        if (USaveSubsystem* Subsystem = GI->GetSubsystem<USaveSubsystem>())
+        {
+            USaveGame_RunState* State = Subsystem->LoadRunState();
+            if (!State)
+            {
+                State = NewObject<USaveGame_RunState>();
+            }
+            Subsystem->SaveRunState(State);
+        }
     }
 }
