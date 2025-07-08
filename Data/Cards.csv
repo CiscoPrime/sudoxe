@@ -1,0 +1,2 @@
+CardID,DisplayName,Portrait,Frame,FrameTint,CardVisualWidget,Visual.Sprite,Visual.Flipbook,Visual.SkeletalMesh,Visual.IdleAnimation,Visual.AttackAnimation,Visual.DefendAnimation,Visual.WalkAnimation,Visual.RetreatAnimation,CardType,Rarity,EnergyCost,BaseDamage,BaseBlock,GrantedStatusEffects,StartingStatuses,Repetitions
+Strike,"Strike",,,,None,,,,,,,,,Attack,Common,1,6,0,, ,1
