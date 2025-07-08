@@ -2,6 +2,7 @@
 //=== StatusTypes.h ========================================================
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
+#include "Engine/DataTable.h"
 
 #include "StatusTypes.generated.h" // ← Must be the LAST include in this header
 
@@ -36,7 +37,7 @@ enum class EStatusStacking : uint8
  * Designers tweak these in DataTables / PrimaryDataAssets.
  */
 USTRUCT(BlueprintType)
-struct FStatusEffectData
+struct FStatusEffectData : public FTableRowBase
 {
     GENERATED_BODY()
 

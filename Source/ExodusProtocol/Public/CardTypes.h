@@ -4,6 +4,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h" // Remove if you won't use GameplayTags
 #include "Blueprint/UserWidget.h" // for CardVisualWidget
+#include "Engine/DataTable.h"
 
 #include "CardTypes.generated.h" // ← Must be the LAST include in this header
 
@@ -35,7 +36,7 @@ enum class ECardRarity : uint8
  * designers tune in the editor.
  */
 USTRUCT(BlueprintType)
-struct FCardData
+struct FCardData : public FTableRowBase
 {
     GENERATED_BODY()
 
