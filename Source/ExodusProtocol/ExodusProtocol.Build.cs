@@ -17,7 +17,8 @@ public class ExodusProtocol : ModuleRules
             "InputCore",
             "EnhancedInput",
             "GameplayTags",
-            "UMG"
+            "UMG",
+            "Paper2D"
         });
 
         // Add any private‑only dependencies here later
