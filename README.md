@@ -31,6 +31,22 @@
 * **UNodeMapWidget** – call `InitWithNodes` with all node actors and handle `OnNodeSelected` when the player picks a destination.
 * **AGameHUD** – custom HUD that creates your `BP_HUD_Widget` at begin play. Set `BP_GameHUD` as the HUD Class in `BP_CoreGameMode`.
 
+## Visual Models & Animations
+
+The new `FCardVisualData` struct describes the presentation for any card‑spawned actor.  It holds optional fields for a sprite, flipbook or skeletal mesh plus five animation slots:
+
+* `IdleAnimation`
+* `AttackAnimation`
+* `DefendAnimation`
+* `WalkAnimation`
+* `RetreatAnimation`
+
+When importing a CSV to a DataTable, reference these assets using the columns `Visual.Sprite`, `Visual.Flipbook`, `Visual.SkeletalMesh` and the corresponding animation columns.  Each row’s values are assigned to the card’s `FCardData::Visual` field.
+
+`UCardVisualComponent` reads this struct on `BeginPlay`.  It automatically spawns the appropriate component type – `USkeletalMeshComponent`, `UPaperFlipbookComponent` or `UPaperSpriteComponent` – attaches it to the card and plays the idle animation.  Blueprint functions `PlayAttack`, `PlayDefend`, `PlayWalk`, `PlayRetreat` and `PlayIdle` wrap the actual animation calls.
+
+Extend the component in Blueprints if you need custom behaviour (e.g. particles or sounds on certain animations).  Create a child blueprint of `UCardVisualComponent`, override the animation functions or add new ones and set your subclass on the actor instead of the base component.
+
 ---
 
 ![image](https://github.com/user-attachments/assets/0b38587e-b1c7-47f9-b1d1-04046d4f768e)
