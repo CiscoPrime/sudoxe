@@ -5,6 +5,15 @@
 #include "StatusEffectComponent.h"
 #include "SaveGameRunState.generated.h"
 
+USTRUCT(BlueprintType)
+struct FMinionStatusArray
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Status")
+    TArray<FActiveStatusEffect> Effects;
+};
+
 /** Save data for a single run. */
 UCLASS()
 class EXODUSPROTOCOL_API USaveGame_RunState : public USaveGame
@@ -45,6 +54,6 @@ public:
 
     /** Status effects per minion (step 11A). */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RunState")
-    TMap<FName, TArray<FActiveStatusEffect>> MinionStatuses;
+    TMap<FName, FMinionStatusArray> MinionStatuses;
 };
 

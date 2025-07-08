@@ -111,7 +111,7 @@ void USaveSubsystem::SetOwnedPatternIDs(const TArray<FName>& NewIDs)
     SaveRunState(State);
 }
 
-void USaveSubsystem::SetMinionStatuses(const TMap<FName, TArray<FActiveStatusEffect>>& Statuses)
+void USaveSubsystem::SetMinionStatuses(const TMap<FName, FMinionStatusArray>& Statuses)
 {
     USaveGame_RunState* State = LoadRunState();
     if (!State)
