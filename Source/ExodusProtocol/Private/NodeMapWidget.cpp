@@ -18,52 +18,56 @@ void UNodeMapWidget::HandleNodeActivated(ANodeActor* Node)
 
     const FEncounterNodeData& Data = Node->NodeData;
 
-    switch (Data.NodeType)
+    UWorld* World = GetWorld();
+    if (World)
     {
-        case ENodeType::Shop:
+        switch (Data.NodeType)
         {
-            if (ShopDataTable && !Data.PayloadID.IsNone())
+            case ENodeType::Shop:
             {
-                const FShopData* Row = ShopDataTable->FindRow<FShopData>(Data.PayloadID, TEXT("HandleNodeActivated"));
-                if (Row)
+                if (ShopDataTable && !Data.PayloadID.IsNone())
                 {
-                    TSubclassOf<UShopWidget> WidgetClass = ShopWidgetClass;
-                    if (!WidgetClass)
+                    const FShopData* Row = ShopDataTable->FindRow<FShopData>(Data.PayloadID, TEXT("HandleNodeActivated"));
+                    if (Row)
                     {
-                        WidgetClass = UShopWidget::StaticClass();
-                    }
-                    if (UShopWidget* Widget = CreateWidget<UShopWidget>(GetWorld(), WidgetClass))
-                    {
-                        Widget->InitWithData(*Row);
-                        Widget->AddToViewport();
+                        TSubclassOf<UShopWidget> WidgetClass = ShopWidgetClass;
+                        if (!WidgetClass)
+                        {
+                            WidgetClass = UShopWidget::StaticClass();
+                        }
+                        if (UShopWidget* Widget = CreateWidget<UShopWidget>(World, WidgetClass))
+                        {
+                            Widget->InitWithData(*Row);
+                            Widget->AddToViewport();
+                        }
                     }
                 }
+                break;
             }
-            break;
-        }
-        case ENodeType::Story:
-        {
-            if (StoryEventTable && !Data.PayloadID.IsNone())
+            case ENodeType::Story:
             {
-                const FStoryEventData* Row = StoryEventTable->FindRow<FStoryEventData>(Data.PayloadID, TEXT("HandleNodeActivated"));
-                if (Row)
+                if (StoryEventTable && !Data.PayloadID.IsNone())
                 {
-                    TSubclassOf<UStoryEventWidget> WidgetClass = StoryEventWidgetClass;
-                    if (!WidgetClass)
+                    const FStoryEventData* Row = StoryEventTable->FindRow<FStoryEventData>(Data.PayloadID, TEXT("HandleNodeActivated"));
+                    if (Row)
                     {
-                        WidgetClass = UStoryEventWidget::StaticClass();
-                    }
-                    if (UStoryEventWidget* Widget = CreateWidget<UStoryEventWidget>(GetWorld(), WidgetClass))
-                    {
-                        Widget->InitWithData(*Row);
-                        Widget->AddToViewport();
+                        TSubclassOf<UStoryEventWidget> WidgetClass = StoryEventWidgetClass;
+                        if (!WidgetClass)
+                        {
+                            WidgetClass = UStoryEventWidget::StaticClass();
+                        }
+                        if (UStoryEventWidget* Widget = CreateWidget<UStoryEventWidget>(World, WidgetClass))
+                        {
+                            Widget->InitWithData(*Row);
+                            Widget->AddToViewport();
+                        }
                     }
                 }
+                break;
             }
-            break;
+            default:
+                break;
         }
-        default:
-            break;
     }
 
     if (UGameInstance* GI = GetGameInstance())
