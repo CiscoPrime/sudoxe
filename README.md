@@ -47,6 +47,15 @@ When importing a CSV to a DataTable, reference these assets using the columns `V
 
 Extend the component in Blueprints if you need custom behaviour (e.g. particles or sounds on certain animations).  Create a child blueprint of `UCardVisualComponent`, override the animation functions or add new ones and set your subclass on the actor instead of the base component.
 
+## Placeholder Assets
+
+A set of dummy files lives in `/Game/ExampleAssets` and is referenced by the rows
+in `Data/Cards.csv`. These assets are not functional but demonstrate how the
+visual system hooks up meshes and animations. Replace the placeholder `.uasset`
+files with your own imports while keeping the same folder layout, then update
+the DataTable rows to point at your real assets using the columns
+`Visual.SkeletalMesh` and the animation columns.
+
 ---
 
 ![image](https://github.com/user-attachments/assets/0b38587e-b1c7-47f9-b1d1-04046d4f768e)
