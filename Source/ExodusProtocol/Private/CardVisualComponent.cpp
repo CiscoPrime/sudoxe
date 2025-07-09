@@ -56,7 +56,7 @@ void UCardVisualComponent::BeginPlay()
     PlayIdle();
 }
 
-void UCardVisualComponent::PlayAnimation(UAnimationAsset* Anim, bool bLoop)
+void UCardVisualComponent::PlayAnimation(UObject* Anim, bool bLoop)
 {
     if (!Anim)
     {
@@ -65,7 +65,10 @@ void UCardVisualComponent::PlayAnimation(UAnimationAsset* Anim, bool bLoop)
 
     if (SkeletalMeshComponent)
     {
-        SkeletalMeshComponent->PlayAnimation(Anim, bLoop);
+        if (UAnimationAsset* Animation = Cast<UAnimationAsset>(Anim))
+        {
+            SkeletalMeshComponent->PlayAnimation(Animation, bLoop);
+        }
     }
     else if (FlipbookComponent)
     {
