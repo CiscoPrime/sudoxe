@@ -33,7 +33,7 @@
 
 ## Visual Models & Animations
 
-The new `FCardVisualData` struct describes the presentation for any card‑spawned actor.  It holds optional fields for a sprite, flipbook or skeletal mesh plus five animation slots:
+The new `FCardVisualData` struct describes the presentation for any card‑spawned actor.  It holds optional fields for a sprite, flipbook or skeletal mesh plus five animation slots.  Each slot accepts either a `UAnimationAsset` or a `UPaperFlipbook`:
 
 * `IdleAnimation`
 * `AttackAnimation`

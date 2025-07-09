@@ -52,25 +52,25 @@ struct FCardVisualData : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
     TObjectPtr<USkeletalMesh> SkeletalMesh = nullptr;
 
-    /** Animation played while idle. */
+    /** Animation played while idle (flipbook or skeletal). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
-    TObjectPtr<UAnimationAsset> IdleAnimation = nullptr;
+    TObjectPtr<UObject> IdleAnimation = nullptr;
 
-    /** Animation played when attacking. */
+    /** Animation played when attacking (flipbook or skeletal). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
-    TObjectPtr<UAnimationAsset> AttackAnimation = nullptr;
+    TObjectPtr<UObject> AttackAnimation = nullptr;
 
-    /** Animation played while defending. */
+    /** Animation played while defending (flipbook or skeletal). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
-    TObjectPtr<UAnimationAsset> DefendAnimation = nullptr;
+    TObjectPtr<UObject> DefendAnimation = nullptr;
 
-    /** Animation used for walking or movement. */
+    /** Animation used for walking or movement (flipbook or skeletal). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
-    TObjectPtr<UAnimationAsset> WalkAnimation = nullptr;
+    TObjectPtr<UObject> WalkAnimation = nullptr;
 
-    /** Animation used for retreat or death. */
+    /** Animation used for retreat or death (flipbook or skeletal). */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Card|Visual")
-    TObjectPtr<UAnimationAsset> RetreatAnimation = nullptr;
+    TObjectPtr<UObject> RetreatAnimation = nullptr;
 };
 
 

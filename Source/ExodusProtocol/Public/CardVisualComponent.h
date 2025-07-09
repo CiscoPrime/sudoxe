@@ -42,7 +42,7 @@ protected:
     virtual void BeginPlay() override;
 
 private:
-    void PlayAnimation(UAnimationAsset* Anim, bool bLoop);
+    void PlayAnimation(UObject* Anim, bool bLoop);
 
     FCardVisualData VisualData;
 
